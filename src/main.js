@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+Vue.config.devtools = true
+
 // 引入UI组件
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
