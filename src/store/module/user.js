@@ -12,9 +12,8 @@ const mutations = {
     }
 }
 const actions = {
-    updateUserName({ commit, state, rootState, dispatch }){
-        console.log(state)
-        console.log(rootState)    }
+    updateUserName({ commit, state, rootState, dispatch }) {
+    }
 }
 export default {
     state,

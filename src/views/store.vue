@@ -1,5 +1,10 @@
 <template>
   <div>
+    <p class="inputStyle">
+      <input type="text" :value="inputValue" @input="changInputValue" />
+      <br />
+      {{inputValue}}
+    </p>
     {{$store.state.appName}}==={{appName}}
     <h3>userName:{{$store.state.user.userName}}==={{userName}}</h3>
     <h2>appNameVision:{{$store.getters.appNameVision}}</h2>
@@ -19,6 +24,9 @@
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   name: "store",
+  data() {
+    return {};
+  },
   computed: {
     // appName() {
     //   return this.$store.state.appName;
@@ -31,7 +39,7 @@ export default {
     //       return state.user.userName
     //   }
     // })
-    ...mapState(["appName", "appVersion"]),
+    ...mapState(["appName", "appVersion", "inputValue"]),
     ...mapState({
       userName(state) {
         return state.user.userName;
@@ -50,7 +58,12 @@ export default {
     //     param: param
     //   });
     // }
-    ...mapMutations(["SET_APP_NAME", "SET_APP_VERSION", "SET_USER_NAME"]),
+    ...mapMutations([
+      "SET_APP_NAME",
+      "SET_APP_VERSION",
+      "SET_USER_NAME",
+      "UPDATE_INPUT_VALUE"
+    ]),
     ...mapActions(["upDateAppName"]),
     setAppName(param) {
       // this.SET_APP_NAME(param);
@@ -75,10 +88,17 @@ export default {
           todoList: ["学习mutations", "学习actions"]
         }
       });
+    },
+    changInputValue(e) {
+      this.UPDATE_INPUT_VALUE();
     }
   }
 };
 </script>
 
 <style>
+.inputStyle {
+  border: 1px solid red;
+  line-height: 50px;
+}
 </style>
