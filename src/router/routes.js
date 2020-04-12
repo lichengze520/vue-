@@ -65,12 +65,17 @@ const routes = [
         }
     },
     {
-        path:'/store',
-        name:'store',
-        component:()=>import('../views/store'),
-        meta:{
-            title:'vuex状态管理'
+        path: '/store',
+        name: 'store',
+        component: () => import('../views/store'),
+        meta: {
+            title: 'vuex状态管理'
         }
+    },
+    {
+        path: '/count',
+        name: 'count',
+        component: () => import('@/views/count-to.vue')
     },
     {
         path: '*',
